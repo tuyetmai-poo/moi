@@ -1,0 +1,51 @@
+/* Thiết lập font chữ chung */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Xoá khoảng cách mặc định của danh sách */
+#menu, #menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+
+/* Định dạng từng mục danh sách (menu item) */
+#menu li {
+    list-style: none;
+    position: relative; /* Điểm tựa định vị cho menu con */
+    width: 140px;       /* Điều chỉnh chiều rộng đủ để hiển thị chữ */
+    height: 30px;
+    padding: 0 15px;
+    background-color: black;
+    line-height: 30px;  /* Canh chữ nằm chính giữa dòng theo chiều dọc */
+    cursor: pointer;
+    white-space: nowrap; /* Giữ chữ không bị rớt xuống dòng */
+}
+
+/* Định dạng thẻ liên kết <a> */
+#menu li a {
+    text-decoration: none;
+    color: white;
+    display: block;      /* Cho phép click vào toàn bộ vùng li */
+}
+
+/* Đổi màu nền khi rê chuột vào mục cha/con */
+#menu li:hover {
+    background-color: red;
+}
+
+/* Ẩn danh sách menu con mặc định */
+#menu ul ul {
+    position: absolute;
+    top: 0;
+    left: 170px;         /* Đẩy sang bên phải = width (140px) + padding trái/phải (15px*2) */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Thêm hiệu ứng hiện mượt mà */
+}
+
+/* Hiển thị menu con khi rê chuột vào li cha chứa nó */
+#menu ul li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
